@@ -1,3 +1,1 @@
---Görev ararken silince tüm görevler siliniyor.
-
 --Öncelik hangi dilde kaydedildiyse onda kalıyor.
