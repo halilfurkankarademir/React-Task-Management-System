@@ -1,0 +1,107 @@
+{
+    "homepage" :{
+        "main" :  "TaskVibe | Home Page",
+        "title" : "TaskVibe",
+        "footer": "A task application by Halil Furkan Karademir",
+        "button": "Dashboard",
+        "subtitle" : "No account required!",
+        "features":{
+            "trackTasks" :"Track your tasks,",
+            "productivity" : "boost your productivity."
+        },
+        "description": "It's time to manage your tasks and to-dos more efficiently. Our app provides a simple yet powerful interface to keep track of your responsibilities.",
+        "select1" : "-You can see your completed tasks, active tasks, number of teams within your dashboard.",
+        "select2" : "-You can easily add tasks, manage tasks and search tasks with my tasks page.",
+        "select3" : "-You can create, join teams and collabrate on your tasks with your connections. (Coming Soon..)",
+        "secondLink" :"Learn More"
+    },
+    "sidebar" :{
+        "title" :"TaskVibe",
+        "dashboard" : "Dashboard",
+        "myTasks" :"My Tasks",
+        "myTeams" : "My Teams",
+        "archive" :"Archive",
+        "copyright" : "All rights reserved 2024.",
+        "profile" : "Profile",
+        "settings" : "Settings",
+        "homePage" : "Home Page" 
+    },
+    "dashboard":{
+        "main" :  "TaskVibe | Dashboard",
+        "title" : "Dashboard",
+        "stats0": "Hello, ",
+        "stats1": "here's your stats.",
+        "myDashboard" :"My Dashboard",
+        "loading":"Loading..."
+    },
+    "dates":{
+        "months": [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ]
+    },
+    "chart":{
+        "completed" : "Completed Tasks",
+        "active": "Active Tasks",
+        "teamNumber" :"Team Number",
+        "count" :"Count",
+        "time" : "Average Task Complete Time (Min)"
+    },
+    "myTasks":{
+        "main" :  "TaskVibe | My Tasks",
+        "title" : "My Tasks",
+        "description" : "You can add tasks with ''Add Task'' button and manage tasks with action buttons.",
+        "need":"What do you need to do today?",
+        "select" :"Select Priority",
+        "select1" : "High",
+        "select2" : "Normal",
+        "select3" : "Low",
+        "addTask" : "Add Task +",
+        "search" :"Search Task",
+        "tasks" : "Tasks",
+        "prio" : "Priority",
+        "dueDate": "Due Date",
+        "action" : "Action"
+    },
+    "modal":{
+        "error":"Error",
+        "msg" :"Task cannot be empty!",
+        "close": "Close",
+        "msg1":"Changes successfully saved.",
+        "info": "Information",
+        "complete" : "You have completed the task.",
+        "msg2" : "Completion time:",
+        "minutes" : " Minutes ",
+        "hours" : " Hours "
+
+    },
+    "myTeams":{
+        "main" :  "TaskVibe | My Teams",
+        "txt" : "Coming Soon.."
+    },
+    "profile":{
+        "main" :  "TaskVibe | Profile",
+        "title" :"My Profile",
+        "select" :"Select Photo",
+        "fullName": "Full Name",
+        "fullNameP":"Your Full Name",
+        "username" :"Username",
+        "usernameP" :"Your Username",
+        "emailP" :"Your Email",
+        "save" : "Save Changes",
+        "lang" : "Language",
+        "theme" : "Theme" 
+    },
+    "archive" :{
+        "main" :  "TaskVibe | Archive",
+        "title": "My Archive",
+        "description" :"You can find all of your tasks archive here.",
+        "button" :"Clear"
+    },
+    "key" :{
+        "place" : "Enter Your Key",
+        "button" : "Login",
+        "err" : "Wrong key!"
+    }
+}
+  

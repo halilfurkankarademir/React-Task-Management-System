@@ -1,0 +1,105 @@
+{
+    "homepage" :{
+        "main" :  "TaskVibe | Ana Sayfa",
+        "title" : "TaskVibe",
+        "footer": "Halil Furkan Karademir'den bir görev uygulaması",
+        "button": "Kontrol Paneli",
+        "subtitle" : "Hesap gerektirmez!",
+        "features":{
+            "trackTasks" :"Görevlerini takip et,",
+            "productivity" : "üretkenliğini arttır."
+        },
+        "description": "Bu uygulama kullanımı basit bir arayüz ile görevlerini istediğin gibi yönetme imkanı sağlar.",
+        "select1" : "-Kontrol paneli ile tamamlanmış görevlerini, aktif görevlerini ve üyesi olduğun takım sayısını görebilirsin.",
+        "select2" : "-Görevlerim sayfasıyla kolayca görev ekleyebilir,düzenleyebilir ve görevlerini arayabilirsin.",
+        "select3" : "-Bağlantılarınızla ekipler oluşturabilir, ekiplere katılabilir ve görevleriniz üzerinde işbirliği yapabilirsiniz. (Yakında..)",
+        "secondLink" :"Daha Fazla"
+    },
+    "sidebar" :{
+        "title" :"TaskVibe",
+        "dashboard" : "Kontrol Paneli",
+        "myTasks" :"Görevlerim",
+        "myTeams" : "Takımlarım",
+        "archive" :"Arşiv",
+        "copyright" : "Tüm hakları saklıdır 2024.",
+        "profile" : "Profil",
+        "settings" : "Ayarlar",
+        "homePage" : "Ana Sayfa" 
+    },
+    "dashboard":{
+        "main" :  "TaskVibe | Kontrol Paneli",
+        "title" : "Kontrol Paneli",
+        "stats0": "Merhaba, ",
+        "stats1": "işte istatistiklerin.",
+        "myDashboard" :"Kontrol Panelim",
+        "loading":"Yükleniyor..."
+    },
+    "dates":{
+        "months": [
+            "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+            "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+        ]
+    },
+    "chart":{
+        "completed" : "Tamamlanmış Görevler",
+        "active": "Aktif Görevler",
+        "teamNumber" :"Takım Sayısı",
+        "count" :"Miktar",
+        "time" : "Ortalama Görev Tamamlama Süresi (Dk)"
+    },
+    "myTasks":{
+        "main" :  "TaskVibe | Görevlerim",
+        "title" : "Görevlerim",
+        "description" : "Görev Ekle butonu ile görev ekleyip, aksiyon butonları ile yönetebilirsiniz.",
+        "need":"Bugün ne yapman gerekiyor?",
+        "select" :"Önceliği seç",
+        "select1" : "Yüksek",
+        "select2" : "Normal",
+        "select3" : "Düşük",
+        "addTask" : "Görev Ekle +",
+        "search" :"Görev Ara",
+        "tasks" : "Görevler",
+        "prio" : "Öncelik",
+        "dueDate": "Tarih",
+        "action" : "Aksiyon"
+    },
+    "modal":{
+        "error":"Hata",
+        "msg" :"Görev boş olamaz!",
+        "close": "Kapat",
+        "msg1":"Değişiklikler başarıyla kaydedildi.",
+        "info": "Bilgilendirme",
+        "complete" : "Görevi tamamladınız.",
+        "msg2" : "Tamamlama süresi:",
+        "minutes" : " Dakika ",
+        "hours" : " Saat "
+    },
+    "myTeams":{
+        "main" :  "TaskVibe | Takımlarım",
+        "txt" : "Yakında.."
+    },
+    "profile":{
+        "main" :  "TaskVibe | Profil",
+        "title" :"Profilim",
+        "select" :"Fotoğraf Seç",
+        "fullName": "Ad-Soyad",
+        "fullNameP":"Tam Adınız",
+        "username" :"Kullanıcı Adı",
+        "usernameP" :"Kullanıcı Adınız",
+        "emailP" :"Emailiniz",
+        "save" : "Değişiklikleri Kaydet",
+        "lang" : "Dil" ,
+        "theme" : "Tema" 
+    },
+    "archive" :{
+        "main" :  "TaskVibe | Arşiv",
+        "title": "Arşivim",
+        "description" :"Tüm görevlerinin arşivini burada bulabilirsin.",
+        "button" :"Arşivi Temizle"
+    },
+    "key" :{
+        "place" : "Anahtarı Gir",
+        "button" : "Giriş"
+    }
+}
+  

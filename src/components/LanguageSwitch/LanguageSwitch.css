@@ -1,0 +1,17 @@
+.language-switcher{
+    position: absolute;
+    top: 10%;
+    left: 93.5%;
+    border: none;
+    outline: none;
+    z-index: 3;
+}
+.language-switcher{
+    border: none;
+    margin: 5px;
+    background-color: transparent;
+    color: #121212;
+}
+.language-switcher button:hover{
+    text-decoration: underline;
+}

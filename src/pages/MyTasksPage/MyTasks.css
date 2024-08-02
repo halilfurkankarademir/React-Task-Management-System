@@ -1,0 +1,231 @@
+.completed {
+    color: #121212;
+    text-decoration: line-through;
+}
+
+.icon {
+    margin-right: 20%;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.input {
+    background-color: #121212;
+    color: #d9d9d9;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5%;
+    outline: none;
+    padding-left: 1%;
+    width: 400px;
+}
+
+.input::placeholder {
+    color: #d9d9d9;
+}
+
+.input::-moz-focus-inner {
+    background-color: #121212;
+}
+
+.prioSelect {
+    background-color: #121212;
+    color: #d9d9d9;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    margin-right: 5%;
+    outline: none;
+    position: relative;
+    right: inherit;
+    top: 0px;
+    width: 150px;
+    padding-left: 5px;
+    font-weight: 500;
+}
+
+.prioSelect option {
+    border-radius: 10px;
+    padding: auto;
+}
+
+
+
+
+
+
+.table {
+    background-color: transparent;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    background-color: transparent;
+    color: #121212;
+    right: 100px;
+    position: relative;
+    left: 0;
+    width: 50%;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #b8b8b8;
+}
+.table td:nth-child(1) {
+    text-align: left;
+    left: 0px;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    background-color: transparent;
+    color: #121212;
+    height: 10px;
+    left: 40%;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #b8b8b8;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+    background-color: transparent;
+    color: #121212;
+    left: 40%;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #b8b8b8;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+    background-color: transparent;
+    color: #121212;
+    position: relative;
+    left: 40%;
+    width: 100px;
+}
+
+.table .table-head {
+    font-weight: 700;
+}
+.table td.table-task {
+    background-color: transparent;
+    max-width: 500px !important;
+    width: 500px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.todo-container {
+    width: 50%;
+    position: absolute;
+    top: 25px;
+    left: 45%;
+    transform: translateX(-50%);
+}
+
+.todo-form .btn-secondary {
+    background-color: #121212;
+    border: none;
+    border-radius: 10px;
+    color: #d9d9d9;
+    height: auto;
+    position: relative;
+    bottom: 2px;
+    font-weight: 500;
+}
+
+.todo-form .btn-secondary:hover {
+    background-color: #94b0f6;
+    color: #121212;
+}
+
+.icon-check {
+    color: #121212;
+}
+.icon-trash {
+    color: #121212;
+}
+.icon-check:hover{
+    color: #2ca348;
+}
+.icon-trash:hover{
+    color: #ca3434;
+}
+table td.High {
+    color: red !important;
+}
+table td.Low {
+    color: green !important;
+}
+table td.Yüksek {
+    color: red !important;
+}
+table td.Düşük {
+    color: green !important;
+}
+
+
+.bi-chat-square-dots {
+    font-size: 25px;
+    position: absolute;
+    top: 88px;
+    color: #d9d9d9;
+    left: 47%;
+    padding-right: 15px;
+    border-radius: 10px;
+    background-color: #121212;
+}
+.bi-plus {
+    font-size: 120%;
+    padding-left: 10px;
+    font-weight: 900;
+}
+.bi-clipboard-check {
+    position: absolute;
+    font-size: 25px;
+    top: 1px;
+    left: 25%;
+}
+.bi-search {
+    position: relative;
+    font-size: 20px;
+    left: 96%;
+    bottom: 40px;
+}
+.input.search {
+    position: relative;
+    bottom: 42px;
+    left: 105%;
+    width: 250px;
+    background-color: transparent;
+    border: 2px solid #121212;
+    color: #121212;
+    font-weight: 500;
+}
+.input.search::placeholder {
+    color: #121212;
+    font-weight: 500;
+}

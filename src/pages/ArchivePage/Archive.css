@@ -1,0 +1,53 @@
+.archive-container{
+    position: relative;
+    width: 50rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    left: 38.5%;
+    top: 25px;
+}
+#archiveIco{
+    font-size: 30px;
+    margin-left: 10px;
+}
+#archive-prio{
+    background-color: transparent;
+    color: #121212;
+    height: 10px;
+    left: 50%;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #b8b8b8;
+}
+#archive-prio2{
+    background-color: transparent;
+    color: #121212;
+    height: 10px;
+    left: 50%;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #b8b8b8;
+}
+.clearArchiveButton{
+    width: 150px;
+    background-color: #121212;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.clearArchiveButton:hover{
+    transform: scale(1.05);
+    background-color: #94b0f6;
+    color: #121212;
+    font-weight: 500;
+}
