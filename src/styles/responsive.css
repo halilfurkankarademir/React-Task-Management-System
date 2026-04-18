@@ -1,0 +1,152 @@
+/* responsive.css - Genel responsive düzen için stil dosyası */
+
+/* Genel konteyner */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Ana içerik */
+.main-content {
+    flex: 1;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+/* Sidebar açık/kapalı durumuna göre düzenlemeler */
+.sidebar-open .main-content {
+    margin-left: 240px;
+}
+
+.sidebar-closed .main-content {
+    margin-left: 0;
+}
+
+/* Arrowicon stili */
+.arrowIcon {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    background-color: #4285f4;
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.arrowIcon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Tarih gösterimi */
+.currentDate {
+    text-align: right;
+    margin: 1rem;
+    font-style: italic;
+    color: #666;
+}
+
+/* Mobil cihazlar için düzenlemeler (768px altı) */
+@media (max-width: 767px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar-open .main-content,
+    .sidebar-closed .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .currentDate {
+        font-size: 0.9rem;
+        margin: 0.5rem;
+    }
+
+    .arrowIcon {
+        width: 2rem;
+        height: 2rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    /* Tablo ve listelerde kaydırmayı etkinleştir */
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* Tabletler için düzenlemeler (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .sidebar-open .main-content {
+        margin-left: 200px;
+    }
+}
+
+/* Genel iyileştirmeler */
+* {
+    box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* Dokunmatik cihazlara uyumlu olması için daha büyük tıklanabilir alanlar */
+.nav-link,
+button,
+.dropdown-toggle,
+.arrowIcon {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+}
+
+/* Mobil için font boyutu ayarlamaları */
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Dark mode desteği */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #f1f1f1;
+        --card-bg: #1e1e1e;
+        --border-color: #333;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .arrowIcon {
+        background-color: #2d63c4;
+    }
+
+    .card {
+        background-color: var(--card-bg);
+        border-color: var(--border-color);
+    }
+}

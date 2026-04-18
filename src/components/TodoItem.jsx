@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { FaCheck, FaTrash } from "react-icons/fa";
+import { FaCheck, FaTrash, FaFilter, FaSearch, FaSort } from "react-icons/fa";
 import TodoForm from "./TodoForm";
 import "../styles/App.css";
 import { useTranslation } from "react-i18next";
-import CustomModal from '../components/Modal3'; 
+import CustomModal from "../components/Modal3";
+import useDeviceDetect from "./useDeviceDetect";
 
 const TodoItem = () => {
     const { t } = useTranslation();
-
+    const { isMobile, isTablet } = useDeviceDetect();
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [showMobileFilters, setShowMobileFilters] = useState(false);
 
     const handleCloseModal = () => {
-        setIsModalVisible(false); 
-      };
-    
+        setIsModalVisible(false);
+    };
+
+    const toggleMobileFilters = () => {
+        setShowMobileFilters(!showMobileFilters);
+    };
 
     const [tasks, setTasks] = useState(() => {
         const savedTasks = localStorage.getItem("tasks");
@@ -48,14 +54,15 @@ const TodoItem = () => {
             priority,
             date: formattedDate,
             completed: false,
-            createTime: date.getTime(), 
+            createTime: date.getTime(),
         };
         const newTasks = [...tasks, newTask];
         setTasks(newTasks);
         setFilteredTasks(newTasks);
         updateLocalStorage(newTasks);
 
-        const createdDates = JSON.parse(localStorage.getItem("createdDates")) || [];
+        const createdDates =
+            JSON.parse(localStorage.getItem("createdDates")) || [];
         localStorage.setItem(
             "createdDates",
             JSON.stringify([...createdDates, newTask.createTime])
@@ -78,30 +85,32 @@ const TodoItem = () => {
                     completed: !task.completed,
                     endTime: completedTime,
                 };
-                if(task.completed){
+                if (task.completed) {
                     setIsModalVisible(false);
-                }
-                else{
+                } else {
                     setIsModalVisible(true);
                 }
                 if (completedTime) {
                     const diff = completedTime - task.createTime;
-                    localStorage.setItem('diff',diff);
-                    const taskData = JSON.parse(localStorage.getItem("tasks")) || [];
-                    const updatedTaskData = taskData.map(t =>
+                    localStorage.setItem("diff", diff);
+                    const taskData =
+                        JSON.parse(localStorage.getItem("tasks")) || [];
+                    const updatedTaskData = taskData.map((t) =>
                         t.id === id ? updatedTask : t
                     );
-                    localStorage.setItem("tasks", JSON.stringify(updatedTaskData));
+                    localStorage.setItem(
+                        "tasks",
+                        JSON.stringify(updatedTaskData)
+                    );
                 }
-    
+
                 return updatedTask;
             }
             return task;
         });
         setTasks(newTasks);
         setFilteredTasks(newTasks);
-        updateLocalStorage(newTasks);  
-        
+        updateLocalStorage(newTasks);
     };
 
     const deleteTask = (id) => {
@@ -130,6 +139,7 @@ const TodoItem = () => {
     };
 
     const searchItem = (searchInput) => {
+        setSearchTerm(searchInput);
         if (searchInput !== "") {
             const newArr = tasks.filter(
                 (item) =>
@@ -148,73 +158,166 @@ const TodoItem = () => {
         setFilteredTasks(tasks);
     }, [tasks]);
 
+    // Mobil kart görünümü için task render fonksiyonu
+    const renderTaskCard = (taskItem) => (
+        <div
+            key={taskItem.id}
+            className={`task-card ${taskItem.completed ? "completed" : ""} ${
+                taskItem.priority
+            }`}
+        >
+            <div className="task-card-header">
+                <h3
+                    className="task-title"
+                    onClick={() => toggleComplete(taskItem.id)}
+                >
+                    {taskItem.task}
+                </h3>
+                <span className="task-priority">{taskItem.priority}</span>
+            </div>
+            <div className="task-card-body">
+                <p className="task-date">{taskItem.date}</p>
+            </div>
+            <div className="task-card-actions">
+                <button
+                    className="task-action-btn complete-btn"
+                    onClick={() => toggleComplete(taskItem.id)}
+                >
+                    <FaCheck /> {t("myTasks.complete")}
+                </button>
+                <button
+                    className="task-action-btn delete-btn"
+                    onClick={() => deleteTask(taskItem.id)}
+                >
+                    <FaTrash /> {t("myTasks.delete")}
+                </button>
+            </div>
+        </div>
+    );
+
     return (
-        <div>
+        <div className="todo-container">
             <TodoForm addTask={addTask} searchItem={searchItem} />
-            <div>
-                <table className="table table-borderless">
-                    <thead>
-                        <tr>
-                            <th
-                                scope="col"
-                                className="table-head"
+
+            {isMobile && (
+                <div className="mobile-controls">
+                    <div className="mobile-search">
+                        <input
+                            type="text"
+                            className="mobile-search-input"
+                            placeholder={t("myTasks.search")}
+                            value={searchTerm}
+                            onChange={(e) => searchItem(e.target.value)}
+                        />
+                        <FaSearch className="mobile-search-icon" />
+                    </div>
+                    <button
+                        className="mobile-filter-btn"
+                        onClick={toggleMobileFilters}
+                    >
+                        <FaFilter /> {t("myTasks.filter")}
+                    </button>
+
+                    {showMobileFilters && (
+                        <div className="mobile-filters">
+                            <button
                                 onClick={() => sortTable("task")}
+                                className="mobile-sort-btn"
                             >
-                                {t("myTasks.tasks")}
-                            </th>
-                            <th scope="col" className="table-head">
-                                {t("myTasks.prio")}
-                            </th>
-                            <th
-                                scope="col"
-                                className="table-head"
+                                <FaSort /> {t("myTasks.sortByTask")}
+                            </button>
+                            <button
                                 onClick={() => sortTable("date")}
+                                className="mobile-sort-btn"
                             >
-                                {t("myTasks.dueDate")}
-                            </th>
-                            <th scope="col" className="table-head">
-                                {t("myTasks.action")}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredTasks.map((taskItem) => (
-                            <tr
-                                key={taskItem.id}
-                                className={
-                                    taskItem.completed ? "completed" : ""
-                                }
-                            >
-                                <td
-                                    className="table-task"
-                                    onClick={() => toggleComplete(taskItem.id)}
+                                <FaSort /> {t("myTasks.sortByDate")}
+                            </button>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {isMobile ? (
+                <div className="task-cards-container">
+                    {filteredTasks.length === 0 ? (
+                        <div className="no-tasks">{t("myTasks.noTasks")}</div>
+                    ) : (
+                        filteredTasks.map(renderTaskCard)
+                    )}
+                </div>
+            ) : (
+                <div className="table-responsive">
+                    <table className="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th
+                                    scope="col"
+                                    className="table-head"
+                                    onClick={() => sortTable("task")}
                                 >
-                                    {taskItem.task}
-                                </td>
-                                <td className={taskItem.priority}>
-                                    {taskItem.priority}
-                                </td>
-                                <td>{taskItem.date}</td>
-                                <td>
-                                    <FaCheck
-                                        className="icon icon-check"
-                                        title="Complete"
+                                    {t("myTasks.tasks")}
+                                </th>
+                                <th scope="col" className="table-head">
+                                    {t("myTasks.prio")}
+                                </th>
+                                <th
+                                    scope="col"
+                                    className="table-head"
+                                    onClick={() => sortTable("date")}
+                                >
+                                    {t("myTasks.dueDate")}
+                                </th>
+                                <th scope="col" className="table-head">
+                                    {t("myTasks.action")}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredTasks.map((taskItem) => (
+                                <tr
+                                    key={taskItem.id}
+                                    className={
+                                        taskItem.completed ? "completed" : ""
+                                    }
+                                >
+                                    <td
+                                        className="table-task"
                                         onClick={() =>
                                             toggleComplete(taskItem.id)
                                         }
-                                    />
-                                    <FaTrash
-                                        className="icon icon-trash"
-                                        title="Delete"
-                                        onClick={() => deleteTask(taskItem.id)}
-                                    />
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <CustomModal isVisible={isModalVisible} handleClose={handleCloseModal} />
+                                    >
+                                        {taskItem.task}
+                                    </td>
+                                    <td className={taskItem.priority}>
+                                        {taskItem.priority}
+                                    </td>
+                                    <td>{taskItem.date}</td>
+                                    <td>
+                                        <FaCheck
+                                            className="icon icon-check"
+                                            title="Complete"
+                                            onClick={() =>
+                                                toggleComplete(taskItem.id)
+                                            }
+                                        />
+                                        <FaTrash
+                                            className="icon icon-trash"
+                                            title="Delete"
+                                            onClick={() =>
+                                                deleteTask(taskItem.id)
+                                            }
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
+            <CustomModal
+                isVisible={isModalVisible}
+                handleClose={handleCloseModal}
+            />
         </div>
     );
 };
